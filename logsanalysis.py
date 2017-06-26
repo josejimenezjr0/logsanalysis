@@ -20,18 +20,5 @@ query = """
 c.execute(query)
 rows = c.fetchall()
 
-print("'{s[0][0]}' - {s[0][1]} views".format(s=rows))
-
-# [
-#     ('Candidate is jerk, alleges rival', 338647L),
-#     ('Bears love berries, alleges bear', 253801L),
-#     ('Bad things gone, say good people', 170098L)
-# ]
-
-# for i in rows:
-#     print(i[0])
-#     print(i[1])
-
-# print()
-
-
+for i in rows:
+    print("'{s[0]}' - {s[1]} views".format(s=i))
