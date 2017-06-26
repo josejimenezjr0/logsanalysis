@@ -22,6 +22,8 @@ query = """
 c.execute(query)
 rows = c.fetchall()
 
+print("\nQuestion 1: What are the most popular three articles of all time?\n")
+
 for i in rows:
     print("'{s[0]}' - {s[1]} views".format(s=i))
 
@@ -40,6 +42,8 @@ query = """
 c.execute(query)
 rows = c.fetchall()
 
+print("\nQuestion 2: Who are the most popular article authors of all time?\n")
+
 for i in rows:
     print("'{s[0]}' - {s[1]} views".format(s=i))
 
@@ -56,4 +60,7 @@ rows = c.fetchall()
 
 date = rows[0][0].strftime("%B %d, %Y")
 error_percent = rows[0][1]
-print("{} - {}% errors".format(date, error_percent))
+
+print("\nQuestion 3: On which days did more than 1% of requests lead to errors?\n")
+
+print("{} - {}% errors\n".format(date, error_percent))
