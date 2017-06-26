@@ -22,3 +22,21 @@ rows = c.fetchall()
 
 for i in rows:
     print("'{s[0]}' - {s[1]} views".format(s=i))
+
+query = """
+        with paths as (
+            select substring (path, 10) as slug
+            from log
+            where status = '200 OK'
+        )
+        select authors.name, count(*) as num 
+        from authors, articles, paths
+        where authors.id = articles.author and articles.slug = paths.slug
+        group by authors.name 
+        order by num desc;
+        """
+c.execute(query)
+rows = c.fetchall()
+
+for i in rows:
+    print("'{s[0]}' - {s[1]} views".format(s=i))
