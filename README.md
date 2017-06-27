@@ -10,13 +10,22 @@ It will answer three questions with database queries:
 
 ## Setup
 
-- Make sure you have python and git installed.
+- Make sure you have the following installed:
+    - python
+    - git
+    - Vagrant
+    - VirtualBox
+
 - Clone the master fork from https://github.com/josejimenezjr0/logsanalysis.git
-- follow the Udacity instructions to [prepare the software and data](https://classroom.udacity.com/nanodegrees/nd004/parts/8d3e23e1-9ab6-47eb-b4f3-d5dc7ef27bf0/modules/bc51d967-cb21-46f4-90ea-caf73439dc59/lessons/262a84d7-86dc-487d-98f9-648aa7ca5a0f/concepts/a9cf98c8-0325-4c68-b972-58d5957f1a91)
+- Clone the Vagrant machine from Udacity from https://github.com/udacity/fullstack-nanodegree-vm
+- Inside the vagrant subdirectory run the command `vagrant up` then `vagrant ssh`
+- Next, [download the data here.](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) You will need to unzip this file after downloading it. The file inside is called newsdata.sql. Put this file into the vagrant directory, which is shared with your virtual machine.
+
+- To build the reporting tool, you'll need to load the site's data into your local database. To load the data, use the command `psql -d news -f newsdata.sql`.
 
 ## How to run
 
-- From your computer in a terminal execute the following code within the directory where you cloned the repository
+- From your computer in a terminal execute the following code within the directory where you cloned the logsanalyisis.git repository
 
 ```
 python logsanalysis.py
